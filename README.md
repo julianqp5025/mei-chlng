@@ -235,9 +235,10 @@ Validamos los cambios con en MongoDB:
 
 ## Oportunidades de mejora
 El proyecto fue desarrollado siguiendo los lineamientos de **Service Organization Control Type 2 (SOC 2)**.
+
 Fuente: https://loadforge.com/guides/load-testing/setting-up-your-fastapi-environment-for-soc2-security-standards
 
-:point_down
+👇
 - Implementar SSL para conectarse con MongoDB desde un cliente DB: https://www.mongodb.com/docs/manual/tutorial/configure-ssl/.
 - Encriptación en reposo (Encrypting Data At Rest) usando [Vautl](https://www.vaultproject.io/), [AWS KMS](https://aws.amazon.com/kms/), etc.
 - Captación de logs implícito desde el código (ex: ```loguru```) y que plataformas como [Prometheus](https://prometheus.io/), [Grafana](https://grafana.com/) o [Datadog](https://www.datadoghq.com/) obtengan más información de eventos.
@@ -246,7 +247,7 @@ Fuente: https://loadforge.com/guides/load-testing/setting-up-your-fastapi-enviro
 
 
 ## URLs consultadas para el desarrollo
-- Liberar recursos del PC por usar Docker :smiling_face_with_tear : https://depot.dev/blog/docker-clear-cache
+- Liberar recursos del PC por usar Docker 🥲 : https://depot.dev/blog/docker-clear-cache
 - Usar MongoDB con Docker: https://www.mongodb.com/resources/products/compatibilities/docker
 - Generar y autofirmar SSL: https://www.suse.com/es-es/support/kb/doc/?id=000018152 - https://letsencrypt.org/docs/certificates-for-localhost/
 - Implementar SSLs para ```uvicorn``` server: https://stackoverflow.com/questions/69207474/enable-https-using-uvicorn
