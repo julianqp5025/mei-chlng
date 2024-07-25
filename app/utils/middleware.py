@@ -42,7 +42,7 @@ class MongoDB(object):
 # Definimos una función que se encargué de poblar la DB con la info obtenida desde la api: https://62433a7fd126926d0c5d296b.mockapi.io/api/v1/usuarios
 def populate_info():
   user_url = os.getenv("SOURCE_DATA")
-  res = requests.get(url=user_url)
+  res = requests.get(url=user_url, verify=False)
   api_data = res.json()
 
   if res.status_code != 200:
