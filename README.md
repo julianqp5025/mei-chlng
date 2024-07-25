@@ -135,7 +135,7 @@ Para ello ejecutaremos el endpoint ```/api/v1/populated_db``` y su método POST.
 Clic en **/api/v1/populated_db** > **Try it out** > **Execute**
 ![Screenshot from 2024-07-25 10-08-28](https://github.com/user-attachments/assets/861a378b-885e-421a-b329-c78f0d65aa39)
 
-Si todo se ejecuta correctamente podremos ver el mensaje ```{"msg": "info populated!!!"}``` y en la DB podremos verla.
+Si todo se ejecuta correctamente podremos ver el mensaje ```{"msg": "info populated!!!"}``` y en la DB consultar la información guardada.
 ![Screenshot from 2024-07-25 11-57-29](https://github.com/user-attachments/assets/f553e291-a5fc-468b-b872-691939de9dfc)
 
 ![Screenshot from 2024-07-25 11-57-54](https://github.com/user-attachments/assets/bd426626-5f9e-4a86-8a7b-6a59ec006783)
