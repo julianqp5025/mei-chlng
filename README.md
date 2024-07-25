@@ -11,6 +11,7 @@ Flujo de consumo y exposición de información usando un cluster de Kubernetes (
 ## Librerías principales
 | | Nombre | Descripción |
 | --- | --- | --- |
+| ✔️ | Excalidraw | Diseño de diagramas de arquitectura |
 | ✔️ | FastAPI | Desarrollo de APIs |
 | ✔️ | passlib | Criptografía |
 | ✔️ | python-jose | JSON Web Tokens - JWT |
@@ -232,3 +233,32 @@ Validamos los cambios con en MongoDB:
 ![Screenshot from 2024-07-25 11-52-32](https://github.com/user-attachments/assets/9e9ab99a-89c7-47fb-a6e9-cae6eb16c027)
 
 
+## Oportunidades de mejora
+El proyecto fue desarrollado siguiendo los lineamientos de **Service Organization Control Type 2 (SOC 2)**.
+Fuente: https://loadforge.com/guides/load-testing/setting-up-your-fastapi-environment-for-soc2-security-standards
+
+:point_down
+- Implementar SSL para conectarse con MongoDB desde un cliente DB: https://www.mongodb.com/docs/manual/tutorial/configure-ssl/.
+- Encriptación en reposo (Encrypting Data At Rest) usando [Vautl](https://www.vaultproject.io/), [AWS KMS](https://aws.amazon.com/kms/), etc.
+- Captación de logs implícito desde el código (ex: ```loguru```) y que plataformas como [Prometheus](https://prometheus.io/), [Grafana](https://grafana.com/) o [Datadog](https://www.datadoghq.com/) obtengan más información de eventos.
+- Implementar unit-tests con librerías como pyTest.
+- En caso de publicar el proyecto en internet, tener en cuenta el estándar [OWASP](https://owasp.org/www-project-top-ten/) para apliaciones web.
+
+
+## URLs consultadas para el desarrollo
+- Liberar recursos del PC por usar Docker :smiling_face_with_tear : https://depot.dev/blog/docker-clear-cache
+- Usar MongoDB con Docker: https://www.mongodb.com/resources/products/compatibilities/docker
+- Generar y autofirmar SSL: https://www.suse.com/es-es/support/kb/doc/?id=000018152 - https://letsencrypt.org/docs/certificates-for-localhost/
+- Implementar SSLs para ```uvicorn``` server: https://stackoverflow.com/questions/69207474/enable-https-using-uvicorn
+- Integrar JWT al desarrollo: https://cosasdedevs.com/posts/autenticacion-login-jwt-fastapi/ - https://fastapi.tiangolo.com/tutorial/security/oauth2-jwt/
+- Sobre PCI DSS para datos crítica: https://drata.com/blog/pci-compliance-checklist
+- Manejo de status_code en HTTP: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+- Sobre librería pymongo: https://pymongo.readthedocs.io/en/stable/tutorial.html
+- Tipos de datos extra para modelos de FastAPI: https://fastapi.tiangolo.com/tutorial/extra-models/
+
+
+## Errores recurrentes durante el desarrollo
+- ```ObjectId object is not iterable error```: https://sentry.io/answers/fastapi-and-mongodb-objectid-object-is-not-iterable-error/
+- ```"message": "input must be a 24 character hex string, 12 byte Uint"```: https://community.postman.com/t/message-input-must-be-a-24-character-hex-string-12-byte-uint/62379
+- ```Permission denied [system:13]: \"/data/db/journal\""}}```: https://www.reddit.com/r/mongodb/comments/1c87s15/permission_denied_system13_datadbjournal/
+- ```bson.errors.InvalidDocument: cannot encode object: SecretStr('**********'), of type: <class 'pydantic.types.SecretStr'>```, ```msg': 'Input should be a valid string SecretStr```: https://docs.pydantic.dev/2.0/usage/types/secrets/
