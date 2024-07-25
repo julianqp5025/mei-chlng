@@ -88,13 +88,18 @@ python main.py
 
 
 ## 3. Ejecutar aplicación usando ```docker compose up``` (```docker-compose up```)
-### 3.1. Construir la imagen de ```docker``` que será utilizada en el ```docker-compose.yaml```
+## 3.1. Crear la carpeta ```mongodata``` para almacenar los datos de manera persistente.
 Ubicarse en la raíz del repositorio y ejecutar el comando 👇
+```bash
+mkdir -p mongodata
+```
+
+### 3.2. Construir la imagen de ```docker``` que será utilizada en el ```docker-compose.yaml```
 ```bash
 docker buildx b -t mei-chlng .
 ```
 
-### 3.2. Ejecutar ```docker compose```
+### 3.3. Ejecutar ```docker compose```
 >[!TIP]
 >En algunos casos se usa el comando ```docker compose up``` en vez de ```docker-compose up```.
 
@@ -102,8 +107,6 @@ Posteriormente ejecutar el comando 👇
 ```bash
 docker compose up
 ```
->[!CAUTION]
->Ejecutar en otra terminal: ```sudo chmod -R 777 mongodata```, para dar permiso a la escritura dentro del folder de los datos de mongodb, de lo contrario se estará reiniciando constantemente el contenedor ```mongo-server```.
 
 
 ## 4. Ingresar a la API para consumir sus endpoints
