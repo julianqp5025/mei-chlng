@@ -92,6 +92,7 @@ python main.py
 Ubicarse en la raíz del repositorio y ejecutar el comando 👇
 ```bash
 mkdir -p mongodata
+chmod -R 777 mongodata
 ```
 
 ### 3.2. Construir la imagen de ```docker``` que será utilizada en el ```docker-compose.yaml```
