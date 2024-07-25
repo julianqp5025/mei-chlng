@@ -1,0 +1,26 @@
+services:
+  users-api:
+    image: mei-chlng
+    env_file:
+      - .env
+    restart: always
+    container_name: users-api
+    ports:
+      - 8081:8081
+    depends_on:
+      - mongo-server
+
+  mongo-server:
+    image: mongodb/mongodb-community-server
+    env_file:
+      - .env
+    restart: always
+    container_name: mongo-server
+    ports:
+      - 27017:27017
+    environment:
+      - MONGODB_INITDB_DATABASE=${DB_NAME}
+      - MONGODB_INITDB_ROOT_USERNAME=${DB_USER}
+      - MONGODB_INITDB_ROOT_PASSWORD=${DB_PASS}
+    volumes:
+      - ./mongodata:/data/db
